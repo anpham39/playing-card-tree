@@ -18,17 +18,25 @@ export default {
     actions: {
         initialize({ commit }) {
             const cards = [];
-            // let id = 1;
+            let id = 1
 
-            Object.entries(Suits).map(([suit, name]) => Ranks.map(rank => {
-                cards.push({ rank, suit, name: `${rank} of ${name}` });
-                // id += 1;
+            Suits.map((suit) => Ranks.map(rank => {
+                cards.push({ id, rank, suit, name: `${rank} of ${suit}` });
+                id +=1;
             }));
             console.log('Cards', cards);
             commit('setCards', cards);
         },
-        getSingleCard({state}) {
-            console.log('single', state.cards.filter(card => (card.rank == '2' && card.suit == '♦'))); 
-        }
+        // async getSingleCard({state}, suit = 'Diamonds', rank = '3') {
+        //     var filteredCards = await state.cards.filter(card => (card.rank == rank && card.suit == suit))
+        //     console.log('single', filteredCards[0]);
+        //     return filteredCards[0];
+        // }
     },
+    getters: {
+        getSingleCard: (state) => (suit, rank) => {
+          return state.cards.find(card => (card.suit == suit && card.rank == rank))
+        }
+      }
+    
 };

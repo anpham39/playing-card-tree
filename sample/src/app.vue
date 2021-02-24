@@ -26,11 +26,10 @@ export default {
   name: "App",
   beforeMount() {
     this.initialize();
-    this.getSingleCard();
     this.setInitialized(true);
   },
   methods: {
-    ...mapActions("deckOfCards", ["initialize", "getSingleCard"]),
+    ...mapActions("deckOfCards", ["initialize"]),
     ...mapMutations(["setInitialized"]),
   },
 };
