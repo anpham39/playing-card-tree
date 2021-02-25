@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div>Cards tree</div>
+  <section class="tree-container">
+    <h1>Cards tree</h1>
 
     <!-- <div v-for="suit in suits" :key="suit">
       <p>{{ suit }}</p>
@@ -11,20 +11,39 @@
     </div> -->
 
     <!-- Tree level 1: Label is Suit name and children content is Ranks array-->
-    <tree-item
-      v-for="suit in suits"
-      :key="suit"
-      :label="suit"
-      :children="ranks"
-    />
+    <div class="grid-container">
+      <tree-item
+        v-for="suit in suits"
+        :key="suit"
+        :label="suit"
+        :children="ranks"
+      />
+    </div>
   </section>
 </template>
 
 
-<style scoped lang="scss">
-section {
-  background: #eee;
-  padding: 200px;
+<style lang="scss" scoped>
+@import "../app.scss";
+
+.tree-container {
+  padding: 50px 10vw 100px;
+  border: 3px dashed $tree-color;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #ffb931;
+  text-align: center;
+  margin-bottom: 60px;
+  font-size: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto auto;
 }
 </style>
 

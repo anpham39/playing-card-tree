@@ -1,16 +1,16 @@
 <template>
   <div class="home-view">
     <div class="overview-beside-detail">
+      <div class="detail-wrapper">
+        <detail v-if="cardId" :card-id="cardId" />
+        <div v-else class="empty-card">No card selected</div>
+      </div>
       <div class="overview-wrapper">
         <overview />
       </div>
-      <div class="detail-wrapper">
-        <detail v-if="cardId" :card-id="cardId" />
-        <div v-else>No card selected</div>
-      </div>
     </div>
 
-    <instructions />
+    <!-- <instructions /> -->
   </div>
 </template>
 
@@ -18,13 +18,11 @@
 <style scoped lang="scss">
 @import "../app.scss";
 
-.overview-beside-detail {
-  align-items: flex-start;
-  display: flex;
-
-  > * + * {
-    margin-left: $default-padding;
-  }
+.empty-card {
+  @include card();
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }
 </style>
 

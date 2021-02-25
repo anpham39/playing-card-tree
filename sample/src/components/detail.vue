@@ -16,10 +16,20 @@
 @import "../app.scss";
 
 .card-detail {
-  background: #fff;
-  border-radius: 1rem;
-  border: 1px solid $border-color;
-  padding: $default-padding;
+  @include card();
+  h1 {
+    text-align: center;
+  }
+  dl {
+    font-size: 18px;
+    dt {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    dd {
+      margin-bottom: 12px;
+    }
+  }
 }
 </style>
 
