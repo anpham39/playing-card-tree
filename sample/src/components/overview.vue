@@ -10,6 +10,7 @@
       </div>
     </div> -->
 
+    <!-- Tree level 1: Label is Suit name and children content is Ranks array-->
     <tree-item
       v-for="suit in suits"
       :key="suit"

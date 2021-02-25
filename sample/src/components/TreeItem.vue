@@ -1,18 +1,26 @@
 <template>
   <div>
+    <!-- Click event on label to toggle expand and collapse -->
     <p @click="expanded = !expanded">{{ label }}</p>
 
+    <!-- If tree item is expanded, display children content -->
     <div v-if="expanded">
-      <div v-if="Array.isArray(children)">
+      <div v-if="isExpandable">
+        <!-- Tree level 2: Label is Rank name and children content is Card name -->
         <tree-item
           v-for="child in children"
           :key="child"
           :label="child"
-          :children="getSingleCard(label, child)"
+          :children="getCardByTraits(label, child)"
         >
         </tree-item>
       </div>
-      <div v-else>{{ children.name }}</div>
+      <!-- Tree level 3: Card name updating chosen card -->
+      <router-link
+        v-else
+        :to="{ name: 'Home', params: { cardId: children.id.toString() } }"
+        >{{ children.name }}</router-link
+      >
     </div>
   </div>
 </template>
@@ -37,11 +45,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("deckOfCards", ["getSingleCard"]),
-    // isExpandable() {
-    //     console.log(typeof);
-    //     return
-    // }
+    ...mapGetters("deckOfCards", ["getCardByTraits"]),
+    isExpandable() {
+      return Array.isArray(this.children);
+    },
   },
 };
 </script>

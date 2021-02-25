@@ -29,8 +29,11 @@ export default {
         },
     },
     getters: {
-        getSingleCard: (state) => (suit, rank) => {
+        getCardByTraits: (state) => (suit, rank) => {
           return state.cards.find(card => (card.suit == suit && card.rank == rank))
+        },
+        getCardById: (state) => (id) => {
+          return state.cards.find(card => (card.id == id))
         }
       }
     
