@@ -2,13 +2,20 @@
   <section>
     <div>Cards tree</div>
 
-    <div v-for="suit in suits" :key="suit">
+    <!-- <div v-for="suit in suits" :key="suit">
       <p>{{ suit }}</p>
       <div v-for="rank in ranks" :key="rank">
         <p>{{ rank }}</p>
         <div>{{ getSingleCard(suit, rank).name }}</div>
       </div>
-    </div>
+    </div> -->
+
+    <tree-item
+      v-for="suit in suits"
+      :key="suit"
+      :label="suit"
+      :children="ranks"
+    />
   </section>
 </template>
 
@@ -24,6 +31,7 @@ section {
 <script>
 import { Ranks, Suits } from "@/constants";
 import { mapGetters } from "vuex";
+import TreeItem from "./TreeItem.vue";
 
 export default {
   name: "Overview",
@@ -35,6 +43,9 @@ export default {
   },
   computed: {
     ...mapGetters("deckOfCards", ["getSingleCard"]),
+  },
+  components: {
+    TreeItem,
   },
 };
 </script>

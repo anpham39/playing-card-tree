@@ -27,11 +27,6 @@ export default {
             console.log('Cards', cards);
             commit('setCards', cards);
         },
-        // async getSingleCard({state}, suit = 'Diamonds', rank = '3') {
-        //     var filteredCards = await state.cards.filter(card => (card.rank == rank && card.suit == suit))
-        //     console.log('single', filteredCards[0]);
-        //     return filteredCards[0];
-        // }
     },
     getters: {
         getSingleCard: (state) => (suit, rank) => {
