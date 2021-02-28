@@ -1,6 +1,11 @@
 <template>
   <section class="tree-container">
     <h1>Cards tree</h1>
+    <p class="description">
+      This is a collapsable three-level tree of playing cards. When a specific
+      card is chosen, it will be displayed on the card's detail component at the
+      top of the page.
+    </p>
 
     <!-- Tree component: Tree level 1 (Label is Suit name and children content is Ranks array) -->
     <div class="grid-container">
@@ -22,25 +27,47 @@
 @import "../app.scss";
 
 .tree-container {
-  padding: 50px 10vw 100px;
+  padding: 50px 50px 100px;
   border: 3px dashed $tree-color;
+  width: 950px;
+  margin: 0px auto 100px;
+  h1 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #ffb931;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+  .description {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+  .grid-container {
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: 200px 200px 200px 200px;
+  }
 }
 
-h1 {
-  text-transform: uppercase;
-  text-decoration: underline;
-  color: #ffb931;
-  text-align: center;
-  margin-bottom: 60px;
-  font-size: 30px;
+@media (max-width: 1050px) {
+  .tree-container {
+    width: 750px;
+    .grid-container {
+      grid-template-columns: 150px 150px 150px 150px;
+    }
+  }
 }
 
-.grid-container {
-  display: grid;
-  grid-column-gap: 50px;
-  grid-template-columns:
-    calc((80vw - 166px) / 4) calc((80vw - 166px) / 4) calc((80vw - 166px) / 4)
-    calc((80vw - 166px) / 4);
+@media (max-width: 800px) {
+  .tree-container {
+    width: fit-content;
+    .grid-container {
+      grid-template-columns: unset;
+      grid-row-gap: 50px;
+    }
+  }
 }
 </style>
 

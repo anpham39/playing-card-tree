@@ -3,10 +3,10 @@
     <h1>{{ card.name }}</h1>
 
     <dl>
-      <dt>Suit</dt>
-      <dd>{{ card.suit }}</dd>
-      <dt>Rank</dt>
-      <dd>{{ card.rank }}</dd>
+      <dt><b>Suit:</b> {{ card.suit }}</dt>
+      <!-- <dd></dd> -->
+      <dt><b>Rank:</b> {{ card.rank }}</dt>
+      <!-- <dd>{{ card.rank }}</dd> -->
     </dl>
   </div>
 </template>
@@ -23,11 +23,7 @@
   dl {
     font-size: 18px;
     dt {
-      font-weight: bold;
       margin-bottom: 8px;
-    }
-    dd {
-      margin-bottom: 12px;
     }
   }
 }

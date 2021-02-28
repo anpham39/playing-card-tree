@@ -1,8 +1,11 @@
 <template>
   <div class="button-div">
-    <!-- Only display when there is card expanded -->
-    <button v-if="expandedAmount != 0" @click="resetCardsTree">
-      Reset cards
+    <!-- Only display when there is card expanded or chosen-->
+    <button
+      v-if="expandedAmount != 0 || $route.fullPath != '/'"
+      @click="resetCardsTree"
+    >
+      Reset app
     </button>
   </div>
 </template>
