@@ -9,6 +9,7 @@ Vue.use(Vuex);
 function getDefaultState() {
     return {
         initialized: false,
+        expandedAmount: 0,
     };
 }
 
@@ -19,5 +20,8 @@ export default new Vuex.Store({
     mutations: {
         resetState: s => Object.assign(s, getDefaultState()),
         setInitialized: (s, i) => s.initialized = i,
+        addExpandedAmount: (s) => s.expandedAmount += 1,
+        minusExpandedAmount: (s) => s.expandedAmount -= 1,
+        resetExpandedAmount: (s) => s.expandedAmount = 0,
     },
 });

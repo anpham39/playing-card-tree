@@ -1,12 +1,10 @@
 import { Ranks, Suits } from '@/constants';
 
-
 function getDefaultState() {
     return {
         cards: [],
     };
 }
-
 
 export default {
     namespaced: true,
@@ -33,8 +31,8 @@ export default {
           return state.cards.find(card => (card.suit == suit && card.rank == rank))
         },
         getCardById: (state) => (id) => {
-          return state.cards.find(card => (card.id == id))
+            return state.cards.find(card => (card.id == id))
         }
-      }
+    }
     
 };

@@ -2,23 +2,18 @@
   <section class="tree-container">
     <h1>Cards tree</h1>
 
-    <!-- <div v-for="suit in suits" :key="suit">
-      <p>{{ suit }}</p>
-      <div v-for="rank in ranks" :key="rank">
-        <p>{{ rank }}</p>
-        <div>{{ getSingleCard(suit, rank).name }}</div>
-      </div>
-    </div> -->
-
-    <!-- Tree level 1: Label is Suit name and children content is Ranks array-->
+    <!-- Tree component: Tree level 1 (Label is Suit name and children content is Ranks array) -->
     <div class="grid-container">
-      <tree-item
+      <TreeItem
         v-for="suit in suits"
         :key="suit"
         :label="suit"
         :children="ranks"
       />
     </div>
+
+    <!-- Reset button component: Collapse all tree item and unchose card if has any  -->
+    <ResetButton />
   </section>
 </template>
 
@@ -43,7 +38,9 @@ h1 {
 .grid-container {
   display: grid;
   grid-column-gap: 50px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns:
+    calc((80vw - 166px) / 4) calc((80vw - 166px) / 4) calc((80vw - 166px) / 4)
+    calc((80vw - 166px) / 4);
 }
 </style>
 
@@ -52,6 +49,7 @@ h1 {
 import { Ranks, Suits } from "@/constants";
 import { mapGetters } from "vuex";
 import TreeItem from "./TreeItem.vue";
+import ResetButton from "./ResetButton.vue";
 
 export default {
   name: "Overview",
@@ -66,6 +64,7 @@ export default {
   },
   components: {
     TreeItem,
+    ResetButton,
   },
 };
 </script>
