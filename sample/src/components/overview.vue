@@ -63,6 +63,9 @@
 @media (max-width: 800px) {
   .tree-container {
     width: fit-content;
+    .description {
+      text-align: center;
+    }
     .grid-container {
       grid-template-columns: unset;
       grid-row-gap: 50px;
