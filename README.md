@@ -1,1 +1,1 @@
-
+This is a collapsable three-level tree of playing cards. When a specific card is chosen, it will be displayed on the card's detail component at the top of the page. You can collapse all tree item and unchose card by clicking "Reset app" button.

@@ -7,7 +7,7 @@
       top of the page.
     </p>
 
-    <!-- Tree component: Tree level 1 (Label is Suit name and children content is Ranks array) -->
+    <!-- Tree item component: Tree level 1 (Label is Suit name and children content is Ranks array) -->
     <div class="grid-container">
       <TreeItem
         v-for="suit in suits"
